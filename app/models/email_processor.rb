@@ -26,6 +26,10 @@ class EmailProcessor
 
       @ticket = Ticket.create!("ticket": @ticket, "code_id": @code.id)
 
+      if @code.forward_address.present?
+        TicketForwardingMailer.new_ticket(@ticket.id, @code.forward_address, @ticket.ticket['NewDataSet']['tickets']['printable_text']).deliver_now
+      end
+
     else
       put "Ok"
     end
