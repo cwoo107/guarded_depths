@@ -60,3 +60,5 @@ gem 'devise'
 gem 'griddler'
 
 gem 'griddler-sendgrid'
+
+gem 'rexml'
