@@ -24,7 +24,7 @@ class EmailProcessor
       #  WebhookJob.perform_later(@ticket, @code.webhook)
       #end
 
-      @ticket = Ticket.create!("ticket_json": @ticket, "code_id": @code.id)
+      @ticket = Ticket.create!("ticket": @ticket, "code_id": @code.id)
 
     end
 
