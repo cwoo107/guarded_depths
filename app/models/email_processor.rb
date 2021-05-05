@@ -1,4 +1,4 @@
-class EmailProcessor
+class EmailProcessor < ApplicationRecord
   def initialize(email)
     @email = email
   end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount_griddler
   resources :tickets
   resources :codes
   devise_for :users
