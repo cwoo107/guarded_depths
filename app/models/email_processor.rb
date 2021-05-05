@@ -20,12 +20,14 @@ class EmailProcessor
 
       @code = Code.find_by_code(code_lookup)
 
-      #if @code.webhook.present?
-      #  WebhookJob.perform_later(@ticket, @code.webhook)
-      #end
+      if @code.webhook.present?
+        WebhookJob.perform_later(@ticket, @code.webhook)
+      end
 
       @ticket = Ticket.create!("ticket": @ticket, "code_id": @code.id)
 
+    else
+      put "Ok"
     end
 
   end
