@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_180452) do
+ActiveRecord::Schema.define(version: 2021_05_05_181326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "codes", force: :cascade do |t|
+    t.string "code"
+    t.bigint "user_id", null: false
+    t.string "webhook"
+    t.string "forward_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_codes_on_user_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.bigint "code_id", null: false
+    t.json "ticket"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["code_id"], name: "index_tickets_on_code_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +45,6 @@ ActiveRecord::Schema.define(version: 2021_05_05_180452) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "codes", "users"
+  add_foreign_key "tickets", "codes"
 end
