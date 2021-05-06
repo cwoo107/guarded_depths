@@ -23,7 +23,7 @@
     z-index: 100;">Skip to main</a>
   <%= render(SidebarComponent.new(signed_in: current_user.present?, user: (current_user.present? ? current_user.email : ''))) %>
   <div class="<%= current_user.present? ? 'relative md:ml-64 bg-gray-200' : '' %>" >
-    <div class="<%= current_user.present? ? 'pt-20 px-4 md:px-10 mx-auto w-full' : '' %>">
+    <div class="<%= current_user.present? ? 'pt-20 px-0 lg:px-4 mx-auto w-full' : '' %>">
       <main id="main" class="<%= current_user.present? ? 'flex flex-wrap' : '' %>">
         <%= yield %>
       </main>

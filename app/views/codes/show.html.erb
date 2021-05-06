@@ -20,11 +20,11 @@
     <%= @code.forward_address %>
   </p>
   <div class="container">
-    <div class="m-10 float-left">
-      <%= link_to 'Back', codes_path, class: 'bg-gray-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+    <div class="m-10 ">
+      <%= link_to 'Edit', edit_code_path(@code), class: 'bg-green-600 text-white hover:bg-green-500 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
     </div>
-    <div class="m-10 float-right">
-      <%= link_to 'Edit', edit_code_path(@code), class: 'bg-green-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+    <div class="m-10 ">
+      <%= link_to 'Back', codes_path, class: 'bg-gray-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
     </div>
   </div>
 <% end %>
