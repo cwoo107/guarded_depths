@@ -20,5 +20,8 @@
       </div>
     </div>
   </div>
+  <div class="<%= current_user.present? ? 'relative md:ml-64' : '' %>">
+    <%= render(FooterComponent.new(signed_in: current_user.present?)) %>
+  </div>
   </body>
 </html>

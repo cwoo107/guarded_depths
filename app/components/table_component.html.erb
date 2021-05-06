@@ -62,7 +62,7 @@
               <% end %>
               <% data.attributes.each do |key, value| %>
                 <td class="p-2 m-4 whitespace-nowrap text-sm ">
-                  <%= value unless key == 'user_id' || key == 'id' || key == 'created_at' || key == 'updated_at' || key == 'ticket' || key == 'code_id' %>
+                  <%= value unless key == 'user_id' || key == 'id' || key == 'updated_at' || key == 'ticket' || key == 'code_id' %>
                 </td>
               <% end %>
               <% if @links %>
