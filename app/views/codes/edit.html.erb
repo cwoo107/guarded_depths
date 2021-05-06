@@ -4,6 +4,8 @@
   width: "w-full mb-12 xl:mb-0 px-4")) do %>
 
   <%= render(FormComponent.new(object: @code, user: current_user.id)) %>
-  <%= link_to 'Back', @code %>
+  <div class="m-10 ">
+    <%= link_to 'Back', @code, class: 'bg-gray-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+  </div>
 
 <% end %>
