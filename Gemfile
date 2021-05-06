@@ -64,3 +64,7 @@ gem 'griddler-sendgrid'
 gem 'rexml'
 
 gem 'httparty'
+
+gem 'tailwindcss-rails'
+
+gem "view_component", require: "view_component/engine"

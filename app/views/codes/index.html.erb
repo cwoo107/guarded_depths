@@ -1,33 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Codes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>User</th>
-      <th>Webhook</th>
-      <th>Forward address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @codes.each do |code| %>
-      <tr>
-        <td><%= code.code %></td>
-        <td><%= code.user_id %></td>
-        <td><%= code.webhook %></td>
-        <td><%= code.forward_address %></td>
-        <td><%= link_to 'Show', code %></td>
-        <td><%= link_to 'Edit', edit_code_path(code) %></td>
-        <td><%= link_to 'Destroy', code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Code', new_code_path %>
+<%= render(CardComponent.new(
+  title: "All",
+  header: "Codes",
+  width: "w-full mb-12 xl:mb-0 px-4")) do %>
+  <p id="notice"><%= notice %></p>
+  <%= render(TableComponent.new(
+    data: @codes)) %>
+<% end %>
+<div class="container">
+  <div class="m-10 float-right">
+    <%= link_to 'New Code', new_code_path, class: 'bg-gray-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+  </div>
+</div>

@@ -1,5 +1,9 @@
-<h1>New Code</h1>
+<%= render(CardComponent.new(
+  title: "Codes",
+  header: 'New Code',
+  width: "w-full mb-12 xl:mb-0 px-4")) do %>
 
-<%= render 'form', code: @code %>
+  <%= render(FormComponent.new(object: @code, user: current_user.id)) %>
+  <%= link_to 'Back', codes_path %>
 
-<%= link_to 'Back', codes_path %>
+<% end %>

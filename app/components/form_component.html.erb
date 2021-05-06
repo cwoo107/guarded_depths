@@ -1,0 +1,27 @@
+<%= form_with(model: @object) do |form| %>
+  <% if @object.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@object.errors.count, "error") %> prohibited this from saving:</h2>
+
+      <ul>
+        <% @object.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% @object.attributes.each do |key, value|  %>
+    <div class="relative w-full mb-3">
+      <%= form.label key, class: 'block uppercase text-gray-600 text-xs font-bold mb-2' unless key == 'id' || key == 'user_id' || key == 'created_at' || key == 'updated_at'%>
+      <%= form.text_field key, value: value,
+                          class: 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600
+                          bg-white rounded text-sm shadow focus:outline-none focus:ring
+                          w-full ease-linear transition-all duration-150' unless key == 'id' || key == 'user_id' || key == 'created_at' || key == 'updated_at' %>
+    </div>
+  <% end  %>
+  <%= form.hidden_field :user_id, value: @user %>
+  <div class="actions text-center mt-6">
+    <%= form.submit 'Submit', class: 'bg-gray-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150'  %>
+  </div>
+<% end %>

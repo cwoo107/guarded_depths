@@ -1,24 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%= render(CardComponent.new(
+  title: "All",
+  header: "Codes",
+  width: "w-full mb-12 xl:mb-0 px-4")) do %>
 
-<p>
-  <strong>Code:</strong>
-  <%= @code.code %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @code.user_id %>
-</p>
+  <p>
+    <strong>Code:</strong>
+    <%= @code.code %>
+  </p>
 
-<p>
-  <strong>Webhook:</strong>
-  <%= @code.webhook %>
-</p>
+  <p>
+    <strong>Webhook:</strong>
+    <%= @code.webhook %>
+  </p>
 
-<p>
-  <strong>Forward address:</strong>
-  <%= @code.forward_address %>
-</p>
+  <p>
+    <strong>Forward address:</strong>
+    <%= @code.forward_address %>
+  </p>
+  <div class="container">
+    <div class="m-10 float-left">
+      <%= link_to 'Back', codes_path, class: 'bg-gray-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+    </div>
+    <div class="m-10 float-right">
+      <%= link_to 'Edit', edit_code_path(@code), class: 'bg-green-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+    </div>
+  </div>
+<% end %>
 
-<%= link_to 'Edit', edit_code_path(@code) %> |
-<%= link_to 'Back', codes_path %>

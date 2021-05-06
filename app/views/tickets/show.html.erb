@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
+<%= render(CardComponent.new(
+  title: "Ticket Details",
+  header: "#{@ticket.ticket['NewDataSet']['tickets']['ticket']}-#{@ticket.ticket['NewDataSet']['tickets']['revision']}",
+  width: "w-full mb-12 xl:mb-0 px-4")) do %>
 
-<p>
-  <strong>Code:</strong>
-  <%= @ticket.code_id %>
-</p>
-
-<p>
-  <strong>Ticket:</strong>
-  <%= @ticket.ticket %>
-</p>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+  <p id="notice"><%= notice %></p>
+  <div class="container">
+    <div class="m-10">
+      <%= link_to 'View Map', @ticket.ticket['NewDataSet']['tickets']['map_url'], class: 'bg-green-700 text-white hover:bg-green-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+      <%= link_to 'Post Response', @ticket.ticket['NewDataSet']['tickets']['response_url'], class: 'bg-indigo-700 text-white hover:bg-indigo-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+    </div>
+  </div>
+  <div class="m-10 text-xl">
+    <strong>Ticket:</strong>
+    <%= simple_format(@ticket.ticket['NewDataSet']['tickets']['printable_text']) %>
+  </div>
+  <div class="container">
+    <div class="m-10 float-left">
+      <%= link_to 'Back', tickets_path, class: 'bg-gray-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+    </div>
+  </div>
+<% end %>

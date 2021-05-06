@@ -1,6 +1,9 @@
-<h1>Editing Code</h1>
+<%= render(CardComponent.new(
+  title: "Edit code",
+  header: 'edit code',
+  width: "w-full mb-12 xl:mb-0 px-4")) do %>
 
-<%= render 'form', code: @code %>
+  <%= render(FormComponent.new(object: @code, user: current_user.id)) %>
+  <%= link_to 'Back', @code %>
 
-<%= link_to 'Show', @code %> |
-<%= link_to 'Back', codes_path %>
+<% end %>
