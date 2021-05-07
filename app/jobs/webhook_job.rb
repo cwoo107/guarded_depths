@@ -8,6 +8,7 @@ class WebhookJob < ApplicationJob
     require 'httparty'
     if code.webhook.present?
       HTTParty.post(code.webhook,:body => body.to_json,:headers => { 'Content-Type' => 'application/json' } )
+      ticket.update!(webhook_sent: true)
     end
   end
 end

@@ -1,5 +1,5 @@
 class Ticket < ApplicationRecord
-  after_save :send_ticket
+  after_create_commit :send_ticket
   belongs_to :code
 
   def send_ticket

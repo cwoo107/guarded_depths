@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_181326) do
+ActiveRecord::Schema.define(version: 2021_05_07_135437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2021_05_05_181326) do
     t.json "ticket"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "webhook_sent"
+    t.boolean "email_sent"
     t.index ["code_id"], name: "index_tickets_on_code_id"
   end
 
