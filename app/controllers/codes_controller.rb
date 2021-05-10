@@ -4,7 +4,7 @@ class CodesController < ApplicationController
 
   # GET /codes or /codes.json
   def index
-    @codes = Code.all
+    @codes = Code.where(user_id: current_user.id)
   end
 
   # GET /codes/1 or /codes/1.json
