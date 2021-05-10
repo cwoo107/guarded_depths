@@ -13,7 +13,7 @@ class EmailProcessor
     if @ticket['NewDataSet']['audit'].nil?
       code_lookup = @ticket['NewDataSet']['delivery']['recipient']
       code = Code.find_by_code(code_lookup)
-      @ticket = Ticket.create!("ticket": @ticket, "code_id": code.id, "webhook_sent": false, "email_sent": false)
+      @ticket = Ticket.create!("ticket": @ticket, "code_id": code.id)
     else
       put "Ok"
     end
