@@ -3,6 +3,14 @@
   header: "Tickets",
   width: "w-full mb-12 xl:mb-0 px-4")) do %>
   <p id="notice"><%= notice %></p>
+
+  <%= turbo_stream_from "tickets" %>
   <%= render(TableComponent.new(
-    data: @tickets)) %>
+    data: @tickets)) do %>
+    <tbody id="tickets">
+    <%= render @tickets %>
+    </tbody>
+  <% end %>
+
+
 <% end %>

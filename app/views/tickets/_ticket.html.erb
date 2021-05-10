@@ -1,0 +1,52 @@
+<tr id="<%= dom_id(ticket)%>" class="<%= cycle('bg-white', 'bg-gray-50') %> hover:bg-gray-200">
+    <td class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= ticket.attributes['ticket']['NewDataSet']['delivery']['recipient'] %>
+    </td>
+    <td class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= "#{ticket.attributes['ticket']['NewDataSet']['tickets']['ticket']}-#{ticket.attributes['ticket']['NewDataSet']['tickets']['revision']}" %>
+    </td>
+    <td class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= ticket.attributes['ticket']['NewDataSet']['tickets']['type'] %>
+    </td>
+    <td class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= ticket.attributes['ticket']['NewDataSet']['tickets']['priority'] %>
+    </td>
+  <td class="p-2 m-4 whitespace-nowrap text-sm ">
+    <%= ticket.attributes['created_at'] %>
+  </td>
+  <td class="p-2 m-4 whitespace-nowrap text-sm ">
+    <%= ticket.attributes['webhook_sent'] %>
+  </td>
+  <td class="p-2 m-4 whitespace-nowrap text-sm ">
+    <%= ticket.attributes['email_sent'] %>
+  </td>
+
+    <td class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= link_to 'View Details', ticket %>
+    </td>
+</tr>
+
+<% if false %>
+  <%= turbo_frame_tag dom_id(ticket), style: "display:table-row", class: "#{cycle('bg-white', 'bg-gray-50')} hover:bg-gray-200" do %>
+    <div style="display: table-cell" class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= ticket.attributes['ticket']['NewDataSet']['delivery']['recipient'] %>
+    </div>
+    <div style="display: table-cell" class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= "#{ticket.attributes['ticket']['NewDataSet']['tickets']['ticket']}-#{ticket.attributes['ticket']['NewDataSet']['tickets']['revision']}" %>
+    </div>
+    <div style="display: table-cell" class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= ticket.attributes['ticket']['NewDataSet']['tickets']['type'] %>
+    </div>
+    <div style="display: table-cell" class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= ticket.attributes['ticket']['NewDataSet']['tickets']['priority'] %>
+    </div>
+    <% ticket.attributes.each do |key, value| %>
+      <div style="display: table-cell" class="p-2 m-4 whitespace-nowrap text-sm ">
+        <%= value unless key == 'user_id' || key == 'id' || key == 'updated_at' || key == 'ticket' || key == 'code_id' %>
+      </div>
+    <% end %>
+    <div style="display: table-cell" class="p-2 m-4 whitespace-nowrap text-sm ">
+      <%= link_to 'View Details', ticket %>
+    </div>
+  <% end %>
+<% end %>
