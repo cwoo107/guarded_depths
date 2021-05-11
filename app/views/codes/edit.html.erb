@@ -1,7 +1,4 @@
-<%= render(CardComponent.new(
-  title: "Edit code",
-  header: 'edit code',
-  width: "w-full mb-12 xl:mb-0 px-4")) do %>
+<%= turbo_frame_tag 'code' do %>
 
   <%= render(FormComponent.new(object: @code, user: current_user.id)) %>
   <div class="m-10 ">
