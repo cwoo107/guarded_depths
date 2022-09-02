@@ -1,6 +1,7 @@
 class EmailProcessor
   def initialize(email)
     @email = email
+    pp @email
   end
 
   def process
