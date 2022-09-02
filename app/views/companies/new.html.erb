@@ -1,0 +1,12 @@
+<%= turbo_frame_tag 'new_company' do %>
+  <%= render(CardComponent.new(
+    title: "Companies",
+    header: 'New Company',
+    width: "w-full mb-12 xl:mb-0 px-4")) do %>
+
+    <%= render(FormComponent.new(object: @company, user: current_user.id)) %>
+    <div class="m-10 ">
+      <%= link_to 'Cancel', companies_path, class: 'bg-red-500 text-white hover:bg-red-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+    </div>
+  <% end %>
+<% end %>

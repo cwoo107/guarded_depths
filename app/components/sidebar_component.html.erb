@@ -7,15 +7,24 @@
     <div
       class="md:block text-left md:pb-2 text-yellow-400 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
     >
-      Ticket Delivery
+      Member Portal
     </div>
     <ul class="md:hidden items-center flex flex-wrap list-none">
-
       <li class="items-center mx-1">
         <%= link_to root_path do %>
           <div
             class="text-xs uppercase py-3 font-bold block
-              <%= controller_name == 'codes' ? ('text-yellow-400 hover:text-yellow-500') : ('text-gray-300 hover:text-gray-500') %>"
+              <%= controller_name == 'companies' ? ('text-yellow-400 hover:text-yellow-500') : ('text-gray-300 hover:text-gray-100') %>"
+          >
+            Companies
+          </div>
+        <% end %>
+      </li>
+      <li class="items-center mx-1">
+        <%= link_to codes_path do %>
+          <div
+            class="text-xs uppercase py-3 font-bold block
+              <%= controller_name == 'codes' ? ('text-yellow-400 hover:text-yellow-500') : ('text-gray-300 hover:text-gray-100') %>"
           >
             Member Codes
           </div>
@@ -60,13 +69,22 @@
           <%= link_to root_path do %>
             <div
               class="text-xs uppercase py-3 font-bold block
-              <%= controller_name == 'codes' ? ('text-yellow-400 hover:text-yellow-500') : ('text-gray-300 hover:text-gray-500') %>"
+              <%= controller_name == 'companies' ? ('text-yellow-400 hover:text-yellow-500') : ('text-gray-300 hover:text-gray-100') %>"
+            >
+              Companies
+            </div>
+          <% end %>
+        </li>
+        <li class="items-center">
+          <%= link_to codes_path do %>
+            <div
+              class="text-xs uppercase py-3 font-bold block
+              <%= controller_name == 'codes' ? ('text-yellow-400 hover:text-yellow-500') : ('text-gray-300 hover:text-gray-100') %>"
             >
               Member Codes
             </div>
           <% end %>
         </li>
-
         <li class="items-center">
           <%= link_to tickets_path do %>
             <div

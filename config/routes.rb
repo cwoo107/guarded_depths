@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'codes#index'
+  resources :companies
+  root 'companies#index'
   mount_griddler
   resources :tickets
   resources :codes

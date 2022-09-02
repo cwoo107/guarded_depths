@@ -65,6 +65,6 @@ class CodesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def code_params
-      params.require(:code).permit(:code, :user_id, :webhook, :forward_address)
+      params.require(:code).permit(:code, :user_id, :webhook, :forward_address, :company_id, :newtin_code)
     end
 end

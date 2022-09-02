@@ -1,0 +1,16 @@
+<%= render(CardComponent.new(
+  title: "All",
+  header: "Companies",
+  width: "w-full mb-12 xl:mb-0 px-4")) do %>
+  <p id="notice"><%= notice %></p>
+  <%= render(TableComponent.new(
+    data: @companies)) %>
+<% end %>
+<div class="container">
+  <%= turbo_frame_tag 'new_company' do %>
+    <div class="m-10 float-right">
+      <%= link_to 'New Company', new_company_path, class: 'bg-gray-500 text-white hover:bg-gray-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+    </div>
+  <% end %>
+</div>
+

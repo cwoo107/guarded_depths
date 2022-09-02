@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_135437) do
+ActiveRecord::Schema.define(version: 2021_05_26_031614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,18 @@ ActiveRecord::Schema.define(version: 2021_05_07_135437) do
     t.string "forward_address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id"
+    t.string "newtin_code"
     t.index ["user_id"], name: "index_codes_on_user_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "company_name"
+    t.string "billing_code"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -48,5 +59,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_135437) do
   end
 
   add_foreign_key "codes", "users"
+  add_foreign_key "companies", "users"
   add_foreign_key "tickets", "codes"
 end
